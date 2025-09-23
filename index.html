@@ -259,37 +259,41 @@
     </main>
 
     <script>
-      // Target 3 bulan dari sekarang
-      const launchDate = new Date();
-      launchDate.setMonth(launchDate.getMonth() + 3);
+      document.addEventListener("DOMContentLoaded", function () {
+        // Target 3 bulan dari sekarang
+        const launchDate = new Date();
+        launchDate.setMonth(launchDate.getMonth() + 3);
 
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = launchDate - now;
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const distance = launchDate - now;
 
-        if (distance <= 0) {
-          document.getElementById("countdown").innerHTML =
-            "<div class='cs-count'><span class='num'>LIVE 🚀</span></div>";
-          return;
+          if (distance <= 0) {
+            document.getElementById("countdown").innerHTML =
+              "<div class='cs-count'><span class='num'>LIVE 🚀</span></div>";
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("countdown").innerHTML = `
+        <div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
+        <div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
+        <div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
+        <div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
+      `;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = `
-					<div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
-					<div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
-					<div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
-					<div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
-				`;
-      }
-
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+      });
     </script>
   </body>
 </html>
