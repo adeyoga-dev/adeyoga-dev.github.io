@@ -1,261 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<meta
-			name="description"
-			content="Coming soon — Adeyoga's developer portfolio and production projects."
-		/>
-		<title>Coming Soon — Adeyoga</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Coming soon — Adeyoga's developer portfolio and production projects."
+    />
+    <title>Coming Soon — Adeyoga</title>
 
-		<!-- Basic styling, responsive, accessible -->
-		<style>
-			/* Reset-ish minimal */
-			:root {
-				--bg: #0f1724;
-				--card: #0b1220;
-				--muted: #9aa4b2;
-				--accent: #7dd3fc;
-				--accent-2: #60a5fa;
-				--white: #ffffff;
-				--radius: 12px;
-				--max-width: 920px;
-				--gap: 1.25rem;
-				font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-					Roboto, "Helvetica Neue", Arial;
-			}
+    <!-- Basic styling, responsive, accessible -->
+    <style>
+      /* Reset-ish minimal */
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #9aa4b2;
+        --accent: #7dd3fc;
+        --accent-2: #60a5fa;
+        --white: #ffffff;
+        --radius: 12px;
+        --max-width: 920px;
+        --gap: 1.25rem;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+      }
 
-			* {
-				box-sizing: border-box;
-			}
-			html,
-			body {
-				height: 100%;
-			}
-			body {
-				margin: 0;
-				background: radial-gradient(
-						1200px 600px at 10% 10%,
-						rgba(96, 165, 250, 0.06),
-						transparent 6%
-					),
-					radial-gradient(
-						1000px 500px at 90% 90%,
-						rgba(125, 211, 252, 0.04),
-						transparent 6%
-					),
-					var(--bg);
-				color: var(--white);
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				line-height: 1.45;
-				padding: 2rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: var(--gap);
-				font-size: 16px;
-			}
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(96, 165, 250, 0.06),
+            transparent 6%
+          ),
+          radial-gradient(
+            1000px 500px at 90% 90%,
+            rgba(125, 211, 252, 0.04),
+            transparent 6%
+          ),
+          var(--bg);
+        color: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--gap);
+        font-size: 16px;
+      }
 
-			/* Container */
-			.cs-container {
-				width: 100%;
-				max-width: var(--max-width);
-				background: linear-gradient(
-					180deg,
-					rgba(255, 255, 255, 0.02),
-					rgba(255, 255, 255, 0.01)
-				);
-				border-radius: var(--radius);
-				padding: 2rem;
-				box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-				display: grid;
-				grid-template-columns: 1fr 360px;
-				gap: 1.5rem;
-				align-items: center;
-			}
+      /* Container */
+      .cs-container {
+        width: 100%;
+        max-width: var(--max-width);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 2rem;
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 1.5rem;
+        align-items: center;
+      }
 
-			/* For smaller screens, stack */
-			@media (max-width: 900px) {
-				.cs-container {
-					grid-template-columns: 1fr;
-					padding: 1.25rem;
-				}
-			}
+      /* For smaller screens, stack */
+      @media (max-width: 900px) {
+        .cs-container {
+          grid-template-columns: 1fr;
+          padding: 1.25rem;
+        }
+      }
 
-			/* Left column: heading & info */
-			.cs-left {
-			}
-			.cs-brand {
-				display: flex;
-				gap: 0.75rem;
-				align-items: center;
-			}
-			.cs-logo {
-				width: 56px;
-				height: 56px;
-				border-radius: 10px;
-				display: inline-grid;
-				place-items: center;
-				background: linear-gradient(135deg, var(--accent), var(--accent-2));
-				color: #04263b;
-				font-weight: 700;
-				font-size: 18px;
-				box-shadow: 0 6px 18px rgba(96, 165, 250, 0.12);
-			}
-			.cs-title {
-				margin: 0;
-				font-size: 1.5rem;
-				letter-spacing: -0.02em;
-			}
-			.cs-subtitle {
-				margin: 0.35rem 0 1rem 0;
-				color: var(--muted);
-				font-size: 0.95rem;
-			}
+      /* Left column: heading & info */
+      .cs-left {
+      }
+      .cs-brand {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .cs-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+        display: inline-grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #04263b;
+        font-weight: 700;
+        font-size: 18px;
+        box-shadow: 0 6px 18px rgba(96, 165, 250, 0.12);
+      }
+      .cs-title {
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+      .cs-subtitle {
+        margin: 0.35rem 0 1rem 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
 
-			.cs-desc {
-				color: var(--muted);
-				margin-bottom: 1rem;
-			}
+      .cs-desc {
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
 
-			/* Countdown */
-			.cs-countdown {
-				display: flex;
-				gap: 0.5rem;
-				margin: 1rem 0;
-				flex-wrap: wrap;
-			}
-			.cs-count {
-				background: rgba(255, 255, 255, 0.03);
-				padding: 0.6rem 0.8rem;
-				border-radius: 10px;
-				min-width: 72px;
-				text-align: center;
-				font-variant-numeric: tabular-nums;
-			}
-			.cs-count .num {
-				font-weight: 700;
-				font-size: 1.1rem;
-			}
-			.cs-count .label {
-				display: block;
-				color: var(--muted);
-				font-size: 0.75rem;
-			}
+      /* Countdown */
+      .cs-countdown {
+        display: flex;
+        gap: 0.5rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+      }
+      .cs-count {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        min-width: 72px;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+      .cs-count .num {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+      .cs-count .label {
+        display: block;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
 
-			/* Right column: card */
-			.cs-card {
-				background: linear-gradient(
-					180deg,
-					rgba(255, 255, 255, 0.02),
-					rgba(255, 255, 255, 0.01)
-				);
-				border: 1px solid rgba(255, 255, 255, 0.03);
-				padding: 1.25rem;
-				border-radius: 10px;
-			}
+      /* Right column: card */
+      .cs-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 1.25rem;
+        border-radius: 10px;
+      }
 
-			.cs-card h4 {
-				margin: 0 0 0.5rem 0;
-			}
-			.cs-list {
-				list-style: none;
-				padding: 0;
-				margin: 0 0 1rem 0;
-			}
-			.cs-list li {
-				display: flex;
-				justify-content: space-between;
-				gap: 0.5rem;
-				padding: 0.45rem 0;
-				border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
-				color: var(--muted);
-				font-size: 0.95rem;
-			}
+      .cs-card h4 {
+        margin: 0 0 0.5rem 0;
+      }
+      .cs-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem 0;
+      }
+      .cs-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 0.45rem 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
 
-			/* Progress bar example */
-			.cs-progress {
-				height: 10px;
-				background: rgba(255, 255, 255, 0.04);
-				border-radius: 999px;
-				overflow: hidden;
-				margin-top: 0.5rem;
-			}
-			.cs-progress > i {
-				display: block;
-				height: 100%;
-				width: 50%; /* example, adjust by JS if needed */
-				background: linear-gradient(90deg, var(--accent), var(--accent-2));
-			}
+      /* Progress bar example */
+      .cs-progress {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-top: 0.5rem;
+      }
+      .cs-progress > i {
+        display: block;
+        height: 100%;
+        width: 50%; /* example, adjust by JS if needed */
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
 
-			/* CTA & email form */
-			.cs-actions {
-				display: flex;
-				gap: 0.5rem;
-				margin-top: 1rem;
-				flex-wrap: wrap;
-			}
-			.cs-input {
-				flex: 1 1 180px;
-				min-width: 0;
-				padding: 0.6rem 0.75rem;
-				background: transparent;
-				border: 1px solid rgba(255, 255, 255, 0.06);
-				color: var(--white);
-				border-radius: 8px;
-				outline: none;
-			}
-			.cs-btn {
-				padding: 0.6rem 0.9rem;
-				background: linear-gradient(90deg, var(--accent), var(--accent-2));
-				border: none;
-				color: #04263b;
-				font-weight: 700;
-				border-radius: 8px;
-				cursor: pointer;
-			}
-			.cs-btn:active {
-				transform: translateY(1px);
-			}
+      /* CTA & email form */
+      .cs-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+      .cs-input {
+        flex: 1 1 180px;
+        min-width: 0;
+        padding: 0.6rem 0.75rem;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--white);
+        border-radius: 8px;
+        outline: none;
+      }
+      .cs-btn {
+        padding: 0.6rem 0.9rem;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        border: none;
+        color: #04263b;
+        font-weight: 700;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .cs-btn:active {
+        transform: translateY(1px);
+      }
 
-			/* small footer note */
-			.cs-note {
-				color: var(--muted);
-				font-size: 0.85rem;
-				margin-top: 0.75rem;
-			}
-		</style>
-	</head>
-	<body>
-		<main class="cs-container" role="main" aria-labelledby="cs-heading">
-			<!-- LEFT: Intro -->
-			<section class="cs-left" aria-label="Introduction">
-				<div class="cs-brand" aria-hidden="false">
-					<div class="cs-logo" title="AG">AG</div>
-					<div>
-						<h1 id="cs-heading" class="cs-title">Hi — I'm Adeyoga</h1>
-						<p class="cs-subtitle">
-							Developer portfolio & production projects coming soon.
-						</p>
-					</div>
-				</div>
+      /* small footer note */
+      .cs-note {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="cs-container" role="main" aria-labelledby="cs-heading">
+      <!-- LEFT: Intro -->
+      <section class="cs-left" aria-label="Introduction">
+        <div class="cs-brand" aria-hidden="false">
+          <div class="cs-logo" title="AG">AG</div>
+          <div>
+            <h1 id="cs-heading" class="cs-title">Hi — I'm Adeyoga</h1>
+            <p class="cs-subtitle">
+              Developer portfolio & production projects coming soon.
+            </p>
+          </div>
+        </div>
 
-				<p class="cs-desc">
-					I'm a Fullstack Web Developer (Laravel, PHP, JS, PostgreSQL).
-					Currently building a portfolio and working on production mapping and
-					asset management systems. Stay tuned!
-				</p>
+        <p class="cs-desc">
+          I'm a Fullstack Web Developer (Laravel, PHP, JS, PostgreSQL).
+          Currently building a portfolio and working on production mapping and
+          asset management systems. Stay tuned!
+        </p>
 
-				<!-- Countdown (progressive enhancement: if JS disabled, this shows a static date) -->
-				<div>
-					<strong>Estimated launch:</strong>
-					<div class="cs-countdown" aria-live="polite" aria-atomic="true">
-						<!-- JS will populate numbers here -->
-					</div>
-				</div>
-			</section>
-		</main>
-	</body>
+        <!-- Countdown (progressive enhancement: if JS disabled, this shows a static date) -->
+        <div>
+          <strong>Estimated launch:</strong>
+          <div class="cs-countdown" id="countdown">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Target 3 bulan dari sekarang
+      const launchDate = new Date();
+      launchDate.setMonth(launchDate.getMonth() + 3);
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance <= 0) {
+          document.getElementById("countdown").innerHTML =
+            "<div class='cs-count'><span class='num'>LIVE 🚀</span></div>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `
+					<div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
+					<div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
+					<div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
+					<div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
+				`;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
 </html>
