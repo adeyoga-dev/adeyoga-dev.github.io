@@ -260,9 +260,8 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Target 3 bulan dari sekarang
-        const launchDate = new Date();
-        launchDate.setMonth(launchDate.getMonth() + 3);
+        // Target 3 bulan dari tanggal tertentu (23-09-2025 08:39)
+        const launchDate = new Date("2025-12-23T08:39:00");
 
         function updateCountdown() {
           const now = new Date().getTime();
@@ -284,11 +283,11 @@
           const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
           document.getElementById("countdown").innerHTML = `
-        <div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
-        <div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
-        <div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
-        <div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
-      `;
+            <div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
+            <div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
+            <div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
+            <div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
+          `;
         }
 
         setInterval(updateCountdown, 1000);
