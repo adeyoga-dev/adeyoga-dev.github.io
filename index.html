@@ -1,297 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="Coming soon — Adeyoga's developer portfolio and production projects."
-    />
-    <title>Coming Soon — Adeyoga</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
-    <!-- Basic styling, responsive, accessible -->
+    <link rel="stylesheet" href="assets/css/matcha.css" />
     <style>
-      /* Reset-ish minimal */
-      :root {
-        --bg: #0f1724;
-        --card: #0b1220;
-        --muted: #9aa4b2;
-        --accent: #7dd3fc;
-        --accent-2: #60a5fa;
-        --white: #ffffff;
-        --radius: 12px;
-        --max-width: 920px;
-        --gap: 1.25rem;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial;
+      @font-face {
+        font-family: "FreePixel";
+        font-style: normal;
+        font-weight: normal;
+        src: local("FreePixel"),
+          url("assets/fonts/free-pixel/FreePixel.woff") format("woff");
       }
 
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        margin: 0;
-        background: radial-gradient(
-            1200px 600px at 10% 10%,
-            rgba(96, 165, 250, 0.06),
-            transparent 6%
-          ),
-          radial-gradient(
-            1000px 500px at 90% 90%,
-            rgba(125, 211, 252, 0.04),
-            transparent 6%
-          ),
-          var(--bg);
-        color: var(--white);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        line-height: 1.45;
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: var(--gap);
-        font-size: 16px;
+      @font-face {
+        font-family: "UltimatePixelFont";
+        font-style: normal;
+        font-weight: normal;
+        src: local("UltimatePixelFont"),
+          url("assets/fonts/ultimate-pixel/UltimatePixelFont.woff")
+            format("woff");
       }
 
-      /* Container */
-      .cs-container {
+      body {
+        font-family: Arial, sans-serif;
+        color: #eee;
+      }
+
+      #about {
+        font-family: "FreePixel", monospace;
+        letter-spacing: 2px;
+      }
+
+      nav {
+        font-family: "UltimatePixelFont", monospace;
+        position: relative;
+        padding: 10px;
+      }
+
+      nav::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
         width: 100%;
-        max-width: var(--max-width);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.01)
-        );
-        border-radius: var(--radius);
-        padding: 2rem;
-        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-        display: grid;
-        grid-template-columns: 1fr 360px;
-        gap: 1.5rem;
-        align-items: center;
-      }
-
-      /* For smaller screens, stack */
-      @media (max-width: 900px) {
-        .cs-container {
-          grid-template-columns: 1fr;
-          padding: 1.25rem;
-        }
-      }
-
-      /* Left column: heading & info */
-      .cs-left {
-      }
-      .cs-brand {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-      }
-      .cs-logo {
-        width: 56px;
-        height: 56px;
-        border-radius: 10px;
-        display: inline-grid;
-        place-items: center;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #04263b;
-        font-weight: 700;
-        font-size: 18px;
-        box-shadow: 0 6px 18px rgba(96, 165, 250, 0.12);
-      }
-      .cs-title {
-        margin: 0;
-        font-size: 1.5rem;
-        letter-spacing: -0.02em;
-      }
-      .cs-subtitle {
-        margin: 0.35rem 0 1rem 0;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .cs-desc {
-        color: var(--muted);
-        margin-bottom: 1rem;
-      }
-
-      /* Countdown */
-      .cs-countdown {
-        display: flex;
-        gap: 0.5rem;
-        margin: 1rem 0;
-        flex-wrap: wrap;
-      }
-      .cs-count {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 0.6rem 0.8rem;
-        border-radius: 10px;
-        min-width: 72px;
-        text-align: center;
-        font-variant-numeric: tabular-nums;
-      }
-      .cs-count .num {
-        font-weight: 700;
-        font-size: 1.1rem;
-      }
-      .cs-count .label {
-        display: block;
-        color: var(--muted);
-        font-size: 0.75rem;
-      }
-
-      /* Right column: card */
-      .cs-card {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.01)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.03);
-        padding: 1.25rem;
-        border-radius: 10px;
-      }
-
-      .cs-card h4 {
-        margin: 0 0 0.5rem 0;
-      }
-      .cs-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1rem 0;
-      }
-      .cs-list li {
-        display: flex;
-        justify-content: space-between;
-        gap: 0.5rem;
-        padding: 0.45rem 0;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      /* Progress bar example */
-      .cs-progress {
-        height: 10px;
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 999px;
-        overflow: hidden;
-        margin-top: 0.5rem;
-      }
-      .cs-progress > i {
-        display: block;
-        height: 100%;
-        width: 50%; /* example, adjust by JS if needed */
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      }
-
-      /* CTA & email form */
-      .cs-actions {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-      }
-      .cs-input {
-        flex: 1 1 180px;
-        min-width: 0;
-        padding: 0.6rem 0.75rem;
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        color: var(--white);
-        border-radius: 8px;
-        outline: none;
-      }
-      .cs-btn {
-        padding: 0.6rem 0.9rem;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        border: none;
-        color: #04263b;
-        font-weight: 700;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      .cs-btn:active {
-        transform: translateY(1px);
-      }
-
-      /* small footer note */
-      .cs-note {
-        color: var(--muted);
-        font-size: 0.85rem;
-        margin-top: 0.75rem;
+        background: #333; /* warna garis */
       }
     </style>
   </head>
   <body>
-    <main class="cs-container" role="main" aria-labelledby="cs-heading">
-      <!-- LEFT: Intro -->
-      <section class="cs-left" aria-label="Introduction">
-        <div class="cs-brand" aria-hidden="false">
-          <div class="cs-logo" title="AG">AG</div>
-          <div>
-            <h1 id="cs-heading" class="cs-title">Hi — I'm Adeyoga</h1>
-            <p class="cs-subtitle">
-              Developer portfolio & production projects coming soon.
+    <nav class="sticky flex space-between align-center">
+      <div>MyLogo</div>
+      <menu>
+        <li class="selected menu"><a href="#">Home</a></li>
+        <li class="menu"><a href="#">Experiences</a></li>
+        <li class="menu"><a href="#">My Project</a></li>
+        <li class="menu"><a href="#">Contact</a></li>
+      </menu>
+    </nav>
+    <main>
+      <section id="about" class="flex justify-start gap-4">
+        <div class="w-6/12 p-1" style="width: 50%">
+          <header>
+            <h3>Hi Fellas 👋</h3>
+            <p>
+              Yo! I'm <strong>Muhammad Rizki Adeyoga</strong> (you can just call
+              me <strong>Yoga</strong>), a Fullstack Web Developer who loves
+              building clean and readable web apps.
             </p>
-          </div>
+            <p>
+              By day, I’m at a manufacturing company making safety stuff like
+              car airbags, cooking up digital solutions to make things run
+              smoother, trackable, and less of a headache 😎.
+            </p>
+          </header>
         </div>
-
-        <p class="cs-desc">
-          I'm a Fullstack Web Developer (Laravel, PHP, JS, PostgreSQL).
-          Currently building a portfolio and working on production mapping and
-          asset management systems. Stay tuned!
-        </p>
-
-        <!-- Countdown (progressive enhancement: if JS disabled, this shows a static date) -->
-        <div>
-          <strong>Estimated launch:</strong>
-          <div class="cs-countdown" id="countdown">
-            <!-- Populated by JS -->
-          </div>
-        </div>
+        <div class="w-6/12 p-1" style="width: 50%">asda</div>
       </section>
     </main>
 
+    <script src="assets/js/jquery.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Target 3 bulan dari tanggal tertentu (23-09-2025 08:39)
-        const launchDate = new Date("2025-12-23T08:39:00");
-
-        function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = launchDate - now;
-
-          if (distance <= 0) {
-            document.getElementById("countdown").innerHTML =
-              "<div class='cs-count'><span class='num'>LIVE 🚀</span></div>";
-            return;
-          }
-
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          );
-          const minutes = Math.floor(
-            (distance % (1000 * 60 * 60)) / (1000 * 60)
-          );
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          document.getElementById("countdown").innerHTML = `
-            <div class="cs-count"><span class="num">${days}</span><span class="label">Days</span></div>
-            <div class="cs-count"><span class="num">${hours}</span><span class="label">Hours</span></div>
-            <div class="cs-count"><span class="num">${minutes}</span><span class="label">Min</span></div>
-            <div class="cs-count"><span class="num">${seconds}</span><span class="label">Sec</span></div>
-          `;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+      $(document).ready(() => {
+        $(document).on("click", ".menu", function () {
+          $(".menu").removeClass("selected");
+          $(this).addClass("selected");
+        });
       });
     </script>
   </body>
