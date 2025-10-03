@@ -18,7 +18,7 @@ body {
 }
 
 nav {
-    font-family: "Upheaval", "FreePixel", monospace;
+    font-family: "Upheaval", monospace;
     position: relative;
     padding: 10px;
     letter-spacing: 3px;
@@ -68,6 +68,31 @@ nav .logo p {
     margin: 0 auto;
 }
 
+.card {
+    display: flex;
+    flex: 1 1 0;
+    padding: 1rem;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #eee;
+}
+
+.card h1,
+.card h2 {
+    letter-spacing: 3px;
+    font-family: "Upheaval", monospace;
+}
+
+.card p {
+    font-family: "Monogram", monospace;
+}
+
+.card p {
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    line-height: 30px;
+}
+
 .image-wrapper {
     position: relative;
     display: inline-block;
@@ -94,37 +119,16 @@ nav .logo p {
     display: block;
 }
 
-.card {
-    display: flex;
-    flex: 1 1 0;
-    padding: 1rem;
-    justify-content: space-between;
-    flex-direction: column;
-    color: #eee;
+.tech-stack-logos img {
+    height: 40px;
+    background: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    transition: transform 0.2s, border 0.2s;
 }
 
-.card h1,
-.card h2,
-.card p {
-    font-family: "Monogram", monospace;
-}
-
-.card p {
-    font-size: 25px;
-    letter-spacing: 1.5px;
-    line-height: 30px;
-}
-
-.card h1 {
-    font-size: 50px;
-    font-weight: 900;
-    letter-spacing: 3px;
-}
-
-.card h2 {
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 3px;
+.tech-stack-logos img:hover {
+    transform: scale(2.2);
 }
 
 /* Tablet (medium) */
