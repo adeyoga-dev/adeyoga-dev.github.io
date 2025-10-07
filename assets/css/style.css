@@ -12,9 +12,17 @@
     src: url("../fonts/monogram/monogram-extended.ttf") format("truetype");
 }
 
+:root {
+    --transition-duration: 0.3s;
+    --transition-ease: ease-in-out;
+}
+
+/* Default (dark mode) */
 body {
+    transition: background-color var(--transition-duration)
+            var(--transition-ease),
+        color var(--transition-duration) var(--transition-ease);
     font-family: Arial, Helvetica, sans-serif;
-    color: #eee;
 }
 
 nav {
@@ -31,12 +39,12 @@ nav::after {
     bottom: 0;
     height: 2px;
     width: 100%;
-    background-color: rgba(17, 192, 245, 0.5);
+    background-color: var(--accent);
 }
 
 nav menu li:hover {
-    background-color: rgba(17, 192, 245, 0.5);
-    color: white;
+    background-color: var(--accent);
+    color: var(--default);
 }
 
 nav .logo {
@@ -60,6 +68,10 @@ nav .logo p {
     letter-spacing: 3px;
 }
 
+menu > li.selected {
+    color: var(--accent);
+}
+
 #hero {
     display: flex;
     gap: 1rem;
@@ -74,7 +86,6 @@ nav .logo p {
     padding: 1rem;
     justify-content: space-between;
     flex-direction: column;
-    color: #eee;
 }
 
 .card h1,
@@ -106,7 +117,7 @@ nav .logo p {
     width: 100%;
     height: 100%;
     max-height: 310px;
-    border: 3px solid rgba(17, 192, 245, 0.5);
+    border: 3px solid var(--accent);
     border-radius: var(--bd-radius);
     z-index: -1;
 }
@@ -129,6 +140,10 @@ nav .logo p {
 
 .tech-stack-logos img:hover {
     transform: scale(2.2);
+}
+
+:not(:is(dialog, article, body) > header:first-child) > :is(h1, h2) {
+    border-color: var(--accent);
 }
 
 /* Tablet (medium) */
