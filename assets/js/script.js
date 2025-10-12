@@ -1,21 +1,13 @@
 // ######################## Hitung tanggal 2 bulan dari hari ini
-const today = new Date();
-const twoMonthsLater = new Date(
-  today.getFullYear(),
-  today.getMonth() + 2,
-  today.getDate()
-);
-
 // ######################## Hitung mundur
 function updateCountdown() {
   const now = new Date();
+  const twoMonthsLater = new Date(
+    now.getFullYear(),
+    now.getMonth() + 2,
+    now.getDate()
+  );
   const diff = twoMonthsLater - now;
-
-  if (diff <= 0) {
-    $("#countdown").text("It's here!");
-    return;
-  }
-
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
