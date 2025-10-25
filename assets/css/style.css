@@ -19,8 +19,7 @@
 
 /* Default (dark mode) */
 body {
-    transition: background-color var(--transition-duration)
-            var(--transition-ease),
+    transition: background-color var(--transition-duration) var(--transition-ease),
         color var(--transition-duration) var(--transition-ease);
     font-family: Arial, Helvetica, sans-serif;
 }

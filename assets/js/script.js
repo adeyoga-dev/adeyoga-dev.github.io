@@ -1,26 +1,5 @@
-// ######################## Hitung tanggal 2 bulan dari hari ini
-// ######################## Hitung mundur
-function updateCountdown() {
-  const now = new Date();
-  const twoMonthsLater = new Date(
-    now.getFullYear(),
-    now.getMonth() + 2,
-    now.getDate()
-  );
-  const diff = twoMonthsLater - now;
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  $("#countdown").text(
-    `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds left until Full launch! 🚀`
-  );
-}
-
 $(document).ready(() => {
   // ######################## Inisialisasi
-  updateCountdown();
   setInterval(updateCountdown, 1000);
 
   // ######################## Menu navigasi aktif
