@@ -192,15 +192,27 @@ menu > li.selected {
 /* Card Horizontal Scroll */
 .card-scroll {
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
     scroll-behavior: smooth;
     gap: 20px;
     padding-bottom: 10px;
 }
 
+/* Pastikan proyek di dalam card-scroll tidak menyusut sehingga horizontal scroll bekerja */
+.card-scroll .project-card {
+    flex: 0 0 auto; /* jangan shrink, tetap fixed lebar minimal */
+}
+
+/* Momentum scrolling di iOS / WebKit */
+.card-scroll,
+.table-scroll {
+    -webkit-overflow-scrolling: touch;
+}
+
 /* Project Card */
 .project-card {
     min-width: 280px;
+    width: 300px;
     background: var(--card-bg);
     color: var(--text);
     border: 1px solid var(--card-border);
@@ -215,6 +227,20 @@ menu > li.selected {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 12px;
+}
+
+.project-card p {
+    /* Properti Kunci untuk Elipsis Multi-Baris */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    /* Batasi teks hingga 3 baris */
+    -webkit-line-clamp: 3;
+    font-family: "Monogram", monospace;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    line-height: 30px;
 }
 
 /* Table Scroll (untuk responsivitas tabel) */
