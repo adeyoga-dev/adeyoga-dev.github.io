@@ -1,3 +1,4 @@
+/* 1. At-Rules Utama (@font-face) */
 @font-face {
     font-family: "Upheaval";
     font-style: normal;
@@ -12,18 +13,50 @@
     src: url("../fonts/monogram/monogram-extended.ttf") format("truetype");
 }
 
+/* 2. Variabel CSS (:root) */
 :root {
     --transition-duration: 0.3s;
     --transition-ease: ease-in-out;
+    /* Default to light theme values */
+    --bg: #ffffff;
+    --dark-bg-default: #010409;
+    --text: #0d1117;
+    --muted: #4b5563;
+    --card-bg: #3367f5;
+    --card-border: #e5e7eb;
+    --link: #4f8cff;
+    --accent: #4f8cff;
+    --bd-radius: 12px;
 }
 
-/* Default (dark mode) */
+/* 3. Gaya Dasar/Global (body, Elemen Default) */
 body {
     transition: background-color var(--transition-duration) var(--transition-ease),
         color var(--transition-duration) var(--transition-ease);
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
+/* Gaya untuk elemen umum (misalnya border-color untuk heading) */
+:not(:is(dialog, article, body) > header:first-child) > :is(h1, h2) {
+    border-color: var(--accent);
+}
+
+/* 4. Overrides/Modifikasi Dasar (Dark Theme) */
+/* Dark theme overrides when attribute active */
+body[data-color-scheme="dark"] {
+    --bg: #0d1117;
+    --text: #e5e9f0;
+    --muted: #b0b8c1;
+    --card-bg: #0d1117;
+    --card-border: #1f2937;
+    --link: #82aaff;
+}
+
+/* 5. Gaya Komponen/Layout */
+
+/* Navigasi */
 nav {
     font-family: "Upheaval", monospace;
     position: relative;
@@ -43,7 +76,7 @@ nav::after {
 
 nav menu li:hover {
     background-color: var(--accent);
-    color: var(--default);
+    color: var(--default); /* Catatan: Variabel --default tidak terdefinisi di :root */
 }
 
 nav .logo {
@@ -55,8 +88,7 @@ nav .logo {
 }
 
 nav .logo img {
-    height: 40px;
-    margin-right: 0;
+    border-radius: 0;
     display: block;
 }
 
@@ -71,6 +103,7 @@ menu > li.selected {
     color: var(--accent);
 }
 
+/* Hero Section */
 .hero {
     display: flex;
     gap: 1rem;
@@ -79,13 +112,16 @@ menu > li.selected {
     margin: 0px auto;
 }
 
+/* Card Umum */
 .card {
     display: flex;
     flex: 1 1 0;
     padding: 1rem;
     justify-content: space-between;
     flex-direction: column;
-    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--bd-radius);
 }
 
 .card h1,
@@ -101,6 +137,7 @@ menu > li.selected {
     line-height: 30px;
 }
 
+/* Image Wrapper (untuk efek border 3D) */
 .image-wrapper {
     position: relative;
     display: inline-block;
@@ -127,9 +164,10 @@ menu > li.selected {
     display: block;
 }
 
+/* Logo Tech Stack */
 .tech-stack-logos img {
     height: 40px;
-    background: #fff;
+    background: #fff; /* tetap putih agar logo terlihat di dark mode */
     padding: 4px;
     border-radius: 6px;
     transition: transform 0.2s, border 0.2s;
@@ -139,10 +177,7 @@ menu > li.selected {
     transform: scale(2.2);
 }
 
-:not(:is(dialog, article, body) > header:first-child) > :is(h1, h2) {
-    border-color: var(--accent);
-}
-
+/* Experience List */
 .experience-list {
     font-family: "Monogram", monospace;
     font-size: 25px;
@@ -154,6 +189,7 @@ menu > li.selected {
     margin-bottom: 1rem;
 }
 
+/* Card Horizontal Scroll */
 .card-scroll {
     display: flex;
     overflow-x: auto;
@@ -162,9 +198,12 @@ menu > li.selected {
     padding-bottom: 10px;
 }
 
+/* Project Card */
 .project-card {
     min-width: 280px;
-    background: #222;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: 0 2px 8px #0002;
     padding: 20px;
@@ -177,6 +216,34 @@ menu > li.selected {
     border-radius: 8px;
     margin-bottom: 12px;
 }
+
+/* Table Scroll (untuk responsivitas tabel) */
+.table-scroll {
+    display: block;
+    overflow-x: auto;
+}
+
+/* Tabel Pengalaman */
+.experience-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.experience-table th,
+.experience-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--card-border);
+    vertical-align: top;
+}
+
+.experience-table th {
+    background: var(--card-bg);
+    color: var(--text);
+}
+
+/* 7. Media Queries */
+
 /* Tablet (medium) */
 @media (max-width: 991px) {
     body {
@@ -185,6 +252,13 @@ menu > li.selected {
 }
 
 /* Mobile (small) */
+@media (max-width: 768px) {
+    /* Aturan khusus untuk tabel di lebar sedang/kecil */
+    .experience-table {
+        min-width: 680px;
+    }
+}
+
 @media (max-width: 576px) {
     body {
         font-size: 0.875rem;
