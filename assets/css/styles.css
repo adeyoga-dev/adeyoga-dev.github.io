@@ -272,7 +272,7 @@ nav menu > li.nav-menu--active {
 
 .project-card__img {
     width: 100%;
-    height: 120px;
+    height: 300px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 12px;
