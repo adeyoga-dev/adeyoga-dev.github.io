@@ -138,6 +138,27 @@
       </footer>
     </main>
 
+
+
+    <dialog id="portfolioModal" class="portfolio-modal" aria-labelledby="portfolioModalTitle">
+      <article class="portfolio-modal__content">
+        <button type="button" id="portfolioModalClose" class="portfolio-modal__close" aria-label="Close detail modal">✕</button>
+        <p class="portfolio-modal__label font-upheaval">Portfolio Showcase</p>
+        <h3 id="portfolioModalTitle" class="font-upheaval portfolio-modal__title"></h3>
+        <p id="portfolioModalDescription" class="font-monogram portfolio-modal__description"></p>
+
+        <div class="portfolio-modal__meta" id="portfolioModalMeta"></div>
+
+        <section>
+          <h4 class="font-upheaval portfolio-modal__section-title">Flow & Gallery</h4>
+          <p class="portfolio-modal__hint">
+            Saran isi detail: problem yang diselesaikan, role kamu, stack utama, proses pengerjaan, hasil/impact, dan challenge + solusinya.
+          </p>
+          <div class="portfolio-gallery" id="portfolioGallery"></div>
+        </section>
+      </article>
+    </dialog>
+
     <noscript>This portfolio works best with JavaScript enabled for interactive navigation and dynamic sections.</noscript>
 
     <script

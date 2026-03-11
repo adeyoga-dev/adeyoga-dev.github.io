@@ -63,12 +63,21 @@ $(document).ready(() => {
     }
   ];
 
-  const projectItems = Array.from({ length: 10 }, () => ({
-    image: "https://dummyimage.com/600x400/000/fff&text=Image+Note+Found",
-    title: "Lorem ipsum",
+  const projectItems = Array.from({ length: 10 }, (_, index) => ({
+    image: "https://dummyimage.com/600x400/0d1117/82aaff&text=Project+Preview",
+    title: `Project Dummy ${index + 1}`,
     description:
-      "freestar freestar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel facilisis magna. Morbi maximus ac erat a sodales. Vivamus ut purus id erat tempus finibus.",
-    link: "#"
+      "Dummy case study untuk simulasi modal detail portofolio dengan tampilan clean, readable, dan tetap sejalan dengan dark theme website.",
+    link: "#",
+    category: "Internal Web App",
+    role: "Fullstack Developer",
+    timeline: "6 Weeks Sprint",
+    stack: ["Laravel", "PostgreSQL", "jQuery", "Bootstrap"],
+    gallery: [
+      "https://dummyimage.com/1000x600/161b22/82aaff&text=Dashboard+Overview",
+      "https://dummyimage.com/1000x600/161b22/e5e9f0&text=Feature+Workflow",
+      "https://dummyimage.com/1000x600/161b22/4f8cff&text=Report+Analytics"
+    ]
   }));
 
   const renderTechStack = () => {
@@ -106,18 +115,62 @@ $(document).ready(() => {
   const renderProjects = () => {
     const html = projectItems
       .map(
-        (project) => `
+        (project, index) => `
           <div class="project-card">
             <img src="${project.image}" alt="${project.title}" class="project-card__img" loading="lazy" decoding="async" />
             <h3 class="font-upheaval">${project.title}</h3>
             <p class="project-card__desc font-monogram">${project.description}</p>
-            <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-card__link">View Details</a>
+            <a href="${project.link}" data-project-index="${index}" class="project-card__link js-open-portfolio-modal">View Details</a>
           </div>
         `
       )
       .join("");
 
     $("#projectsList").html(html);
+  };
+
+  const openPortfolioModal = (projectIndex) => {
+    const modalElement = $("#portfolioModal")[0];
+    const project = projectItems[projectIndex];
+
+    if (!project || !modalElement) {
+      return;
+    }
+
+    $("#portfolioModalTitle").text(project.title);
+    $("#portfolioModalDescription").text(project.description);
+
+    const metaHtml = [
+      { label: "Category", value: project.category },
+      { label: "Role", value: project.role },
+      { label: "Timeline", value: project.timeline },
+      { label: "Tech Stack", value: project.stack.join(", ") }
+    ]
+      .map((item) => `<div class="portfolio-meta-card"><span>${item.label}</span><strong>${item.value}</strong></div>`)
+      .join("");
+
+    const galleryHtml = project.gallery
+      .map(
+        (image, imageIndex) => `
+          <figure class="portfolio-gallery__item">
+            <img src="${image}" alt="${project.title} gallery ${imageIndex + 1}" loading="lazy" decoding="async" />
+            <figcaption>Preview ${imageIndex + 1}</figcaption>
+          </figure>
+        `
+      )
+      .join("");
+
+    $("#portfolioModalMeta").html(metaHtml);
+    $("#portfolioGallery").html(galleryHtml);
+
+    modalElement.showModal();
+  };
+
+  const closePortfolioModal = () => {
+    const modalElement = $("#portfolioModal")[0];
+    if (modalElement && modalElement.open) {
+      modalElement.close();
+    }
   };
 
   const toggleMobileMenu = () => {
@@ -154,6 +207,24 @@ $(document).ready(() => {
       setActiveNavItem($(this));
     });
     $(document).on("click", closeMenuOnOutsideClick);
+
+    $(document).on("click", ".js-open-portfolio-modal", function (event) {
+      event.preventDefault();
+      openPortfolioModal($(this).data("project-index"));
+    });
+
+    $("#portfolioModalClose").on("click", closePortfolioModal);
+    $("#portfolioModal").on("click", function (event) {
+      if (event.target === this) {
+        closePortfolioModal();
+      }
+    });
+
+    $(document).on("keydown", function (event) {
+      if (event.key === "Escape") {
+        closePortfolioModal();
+      }
+    });
   };
 
   initialize();
