@@ -34,6 +34,14 @@
 
     /* Border Radius */
     --bd-radius: 12px;
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --content-max-width: 1200px;
 }
 
 /* ========================================
@@ -45,11 +53,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    max-width: 90%;
+    margin: 0 auto;
+    width: min(92%, var(--content-max-width));
+    line-height: 1.5;
 }
 
 :not(:is(dialog, article, body) > header:first-child) > :is(h1, h2) {
     border-color: var(--accent);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
 /* ========================================
@@ -58,7 +74,8 @@ body {
 nav {
     font-family: "Upheaval", monospace;
     position: relative;
-    padding: 10px;
+    padding: var(--space-md) var(--space-sm);
+    margin-bottom: var(--space-md);
     letter-spacing: 3px;
 }
 
@@ -84,7 +101,7 @@ nav .nav-logo__img {
     border-radius: 0;
     display: block;
     height: 40px;
-    margin-right: 12px;
+    margin-right: 0;
 }
 
 nav .nav-logo__text {
@@ -96,14 +113,14 @@ nav .nav-logo__text {
 
 nav menu {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-md);
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 nav menu li {
-    padding: 0.5rem 1rem;
+    padding: var(--space-sm) var(--space-md);
     border-radius: 6px;
     transition: background-color 0.2s;
 }
@@ -124,7 +141,7 @@ nav menu > li.nav-menu--active {
     color: var(--text);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: var(--space-xs);
 }
 
 /* ========================================
@@ -132,10 +149,10 @@ nav menu > li.nav-menu--active {
        ======================================== */
 .section-hero {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-lg);
     justify-content: space-between;
-    padding: 1rem;
-    margin: 0 auto;
+    padding: var(--space-lg);
+    margin: 0 auto var(--space-lg);
 }
 
 /* ========================================
@@ -150,7 +167,7 @@ nav menu > li.nav-menu--active {
     font-family: "Monogram", monospace;
     font-size: 25px;
     letter-spacing: 1.5px;
-    line-height: 30px;
+    line-height: 1.35;
 }
 
 .text-muted {
@@ -164,7 +181,7 @@ nav menu > li.nav-menu--active {
 .card {
     display: flex;
     flex: 1 1 0;
-    padding: 1rem;
+    padding: var(--space-lg);
     justify-content: space-between;
     flex-direction: column;
     background: var(--card-bg);
@@ -173,11 +190,11 @@ nav menu > li.nav-menu--active {
 }
 
 .card__title {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
 }
 
 .card__subtitle {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
 }
 
 /* ========================================
@@ -224,7 +241,7 @@ nav menu > li.nav-menu--active {
 .tech-stack__logos {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-xs);
 }
 
 .tech-stack__logo {
@@ -246,8 +263,8 @@ nav menu > li.nav-menu--active {
     display: flex;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    gap: 20px;
-    padding-bottom: 10px;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-sm);
     -webkit-overflow-scrolling: touch;
 }
 
@@ -256,6 +273,7 @@ nav menu > li.nav-menu--active {
        ======================================== */
 .project-section {
     min-height: 400px;
+    align-items: stretch;
 }
 
 .project-card {
@@ -267,7 +285,7 @@ nav menu > li.nav-menu--active {
     border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: var(--space-lg);
 }
 
 .project-card__img {
@@ -275,7 +293,7 @@ nav menu > li.nav-menu--active {
     height: 300px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 12px;
+    margin-bottom: var(--space-sm);
 }
 
 .project-card__desc {
@@ -296,7 +314,7 @@ nav menu > li.nav-menu--active {
 .experience-timeline {
     position: relative;
     padding-left: 40px;
-    margin-top: 2rem;
+    margin-top: var(--space-lg);
 }
 
 .experience-timeline::before {
@@ -311,8 +329,8 @@ nav menu > li.nav-menu--active {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
 }
 
 .timeline-item::before {
@@ -345,20 +363,20 @@ nav menu > li.nav-menu--active {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-xs);
 }
 
 .timeline-title {
     font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-sm);
     color: var(--text);
 }
 
 .timeline-company {
     font-size: 0.95rem;
     color: var(--muted);
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -376,7 +394,7 @@ nav menu > li.nav-menu--active {
 }
 
 .timeline-highlights {
-    margin-top: 1rem;
+    margin-top: var(--space-md);
     padding-left: 0;
     list-style: none;
 }
@@ -384,7 +402,7 @@ nav menu > li.nav-menu--active {
 .timeline-highlights li {
     position: relative;
     padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-xs);
     color: var(--text);
     line-height: 1.6;
 }
@@ -402,7 +420,7 @@ nav menu > li.nav-menu--active {
        13. FOOTER
        ======================================== */
 footer {
-    padding: 1rem;
+    padding: var(--space-lg);
     text-align: center;
 }
 
@@ -421,8 +439,8 @@ footer p {
 .quote {
     font-style: italic;
     border-left: 4px solid var(--accent);
-    margin: 24px 0;
-    padding: 12px 24px;
+    margin: var(--space-lg) 0;
+    padding: var(--space-sm) var(--space-lg);
     background: #f7faff;
     color: #222;
 }
@@ -431,7 +449,7 @@ footer p {
     display: block;
     text-align: right;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: var(--space-xs);
 }
 
 .text-center {
@@ -443,7 +461,7 @@ footer p {
 }
 
 .mt-neg {
-    margin-top: -10px;
+    margin-top: calc(var(--space-xs) * -1);
 }
 
 .github-stats {
@@ -485,7 +503,7 @@ footer p {
         display: none;
         width: 100%;
         flex-direction: column;
-        margin-top: 1rem;
+        margin-top: var(--space-md);
         gap: 0;
     }
 
@@ -496,7 +514,7 @@ footer p {
     nav menu li {
         width: 100%;
         text-align: center;
-        padding: 0.75rem 1rem;
+        padding: var(--space-sm) var(--space-md);
         border-radius: 0;
         border-bottom: 1px solid var(--card-border);
     }
@@ -569,16 +587,16 @@ footer p {
 
     /* Navigation */
     nav {
-        padding: 8px;
+        padding: var(--space-sm) var(--space-xs);
     }
 
     nav .nav-logo {
-        gap: 8px;
+        gap: var(--space-xs);
     }
 
     nav .nav-logo__img {
         height: 32px;
-        margin-right: 8px;
+        margin-right: 0;
     }
 
     nav .nav-logo__text {
@@ -588,18 +606,18 @@ footer p {
 
     /* Sections */
     .section-hero {
-        padding: 0.75rem;
-        gap: 0.75rem;
+        padding: var(--space-sm);
+        gap: var(--space-sm);
     }
 
     /* Cards */
     .card {
-        padding: 0.75rem;
+        padding: var(--space-sm);
     }
 
     .card__title {
         font-size: 1.3rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: var(--space-sm);
     }
 
     /* Image wrapper */
@@ -620,7 +638,7 @@ footer p {
     }
 
     .tech-stack__logos {
-        gap: 6px;
+        gap: var(--space-xs);
     }
 
     /* Font sizes */
@@ -638,18 +656,18 @@ footer p {
     .project-card {
         min-width: 240px;
         width: 260px;
-        padding: 16px;
+        padding: var(--space-md);
     }
 
     /* Scroll container */
     .scroll-container {
-        gap: 16px;
+        gap: var(--space-md);
     }
 
     /* Quote */
     .quote {
-        padding: 10px 16px;
-        margin: 16px 0;
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-md) 0;
     }
 
     /* Footer */
@@ -674,7 +692,7 @@ footer p {
     }
 
     .timeline-card {
-        padding: 1rem;
+        padding: var(--space-md);
     }
 
     .timeline-title {
