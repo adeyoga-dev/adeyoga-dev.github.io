@@ -75,10 +75,14 @@ main {
        ======================================== */
 nav {
     font-family: "Upheaval", monospace;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     padding: var(--space-md) var(--space-sm);
     margin-bottom: var(--space-md);
     letter-spacing: 3px;
+    background-color: var(--bg);
+    flex-wrap: nowrap;
 }
 
 nav::after {
@@ -97,6 +101,7 @@ nav .nav-logo {
     text-decoration: none;
     color: inherit;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 nav .nav-logo__img {
@@ -115,14 +120,16 @@ nav .nav-logo__text {
 
 nav menu {
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-md);
     list-style: none;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 }
 
 nav menu li {
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
     border-radius: 6px;
     transition: background-color 0.2s, color 0.2s;
 }
