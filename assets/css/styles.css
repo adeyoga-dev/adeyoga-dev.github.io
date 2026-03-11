@@ -31,6 +31,8 @@
     --card-border: #30363d;
     --link: #82aaff;
     --accent: #4f8cff;
+    --hover-bg: #2f81f7;
+    --hover-text: #f8fbff;
 
     /* Border Radius */
     --bd-radius: 12px;
@@ -122,15 +124,31 @@ nav menu {
 nav menu li {
     padding: var(--space-sm) var(--space-md);
     border-radius: 6px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-nav menu li:hover {
-    background-color: var(--accent);
+nav menu li a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+nav menu li:hover,
+nav menu li:focus-within {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+}
+
+nav menu li:hover a,
+nav menu li:focus-within a {
+    color: var(--hover-text);
 }
 
 nav menu > li.nav-menu--active {
     color: var(--accent);
+}
+
+nav menu > li.nav-menu--active a {
+    color: inherit;
 }
 
 /* Mobile Menu Toggle */
@@ -306,6 +324,15 @@ nav menu > li.nav-menu--active {
 .project-card__link {
     color: var(--link);
     text-decoration: none;
+    font-weight: 600;
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+    color: var(--hover-text);
+    background: var(--hover-bg);
+    border-radius: 6px;
+    padding: 2px 6px;
 }
 
 /* ========================================
