@@ -455,7 +455,8 @@ nav menu > li.nav-menu--active a {
        13A. PORTFOLIO MODAL
        ======================================== */
 .portfolio-modal {
-    width: min(900px, 92vw);
+    width: min(1040px, 96vw);
+    max-height: min(92vh, 980px);
     border: 1px solid var(--card-border);
     border-radius: var(--bd-radius);
     background: var(--card-bg);
@@ -471,18 +472,35 @@ nav menu > li.nav-menu--active a {
 .portfolio-modal__content {
     position: relative;
     padding: var(--space-xl);
+    padding-top: calc(var(--space-xl) + 2.5rem);
+    overflow-y: auto;
+    max-height: min(92vh, 980px);
 }
 
 .portfolio-modal__close {
     position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
+    top: var(--space-sm);
+    right: var(--space-sm);
     border: 1px solid var(--card-border);
-    background: transparent;
+    background: #111926;
     color: var(--text);
     cursor: pointer;
     border-radius: 8px;
-    padding: 0.25rem 0.55rem;
+    padding: 0.35rem;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.portfolio-modal__close:hover,
+.portfolio-modal__close:focus-visible {
+    background: var(--hover-bg);
+    color: var(--hover-text);
 }
 
 .portfolio-modal__label {
@@ -722,6 +740,7 @@ footer p {
 
     .portfolio-modal__content {
         padding: var(--space-lg);
+        padding-top: calc(var(--space-lg) + 2.25rem);
     }
 }
 
@@ -850,6 +869,7 @@ footer p {
 
     .portfolio-modal__content {
         padding: var(--space-md);
+        padding-top: calc(var(--space-md) + 2rem);
     }
 
     .portfolio-gallery {
