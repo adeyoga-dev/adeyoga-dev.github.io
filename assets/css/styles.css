@@ -416,6 +416,113 @@ nav menu > li.nav-menu--active {
     line-height: 1.4;
 }
 
+
+/* ========================================
+       13A. PORTFOLIO MODAL
+       ======================================== */
+.portfolio-modal {
+    width: min(900px, 92vw);
+    border: 1px solid var(--card-border);
+    border-radius: var(--bd-radius);
+    background: var(--card-bg);
+    color: var(--text);
+    padding: 0;
+}
+
+.portfolio-modal::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.portfolio-modal__content {
+    position: relative;
+    padding: var(--space-xl);
+}
+
+.portfolio-modal__close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0.25rem 0.55rem;
+}
+
+.portfolio-modal__label {
+    margin-bottom: 0;
+    color: var(--accent);
+}
+
+.portfolio-modal__title {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.portfolio-modal__description {
+    margin-top: 0;
+}
+
+.portfolio-modal__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-md) 0 var(--space-lg);
+}
+
+.portfolio-meta-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: var(--space-sm);
+    background: #0f1620;
+}
+
+.portfolio-meta-card span {
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+
+.portfolio-modal__section-title {
+    margin-bottom: var(--space-xs);
+}
+
+.portfolio-modal__hint {
+    margin-top: 0;
+    color: var(--muted);
+}
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-sm);
+}
+
+.portfolio-gallery__item {
+    margin: 0;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0f1620;
+}
+
+.portfolio-gallery__item img {
+    width: 100%;
+    display: block;
+    border-radius: 0;
+}
+
+.portfolio-gallery__item figcaption {
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
 /* ========================================
        13. FOOTER
        ======================================== */
@@ -578,6 +685,10 @@ footer p {
     .timeline-title {
         font-size: 1.2rem;
     }
+
+    .portfolio-modal__content {
+        padding: var(--space-lg);
+    }
 }
 
 @media (max-width: 576px) {
@@ -701,6 +812,14 @@ footer p {
 
     .timeline-period {
         font-size: 0.85rem;
+    }
+
+    .portfolio-modal__content {
+        padding: var(--space-md);
+    }
+
+    .portfolio-gallery {
+        grid-template-columns: 1fr;
     }
 }
 
