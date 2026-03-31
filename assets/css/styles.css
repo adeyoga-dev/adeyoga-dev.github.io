@@ -180,6 +180,27 @@ nav menu > li.nav-menu--active a {
     margin: 0 auto var(--space-lg);
 }
 
+
+.section-hero--intro {
+    display: block;
+}
+
+.card--intro {
+    display: block;
+}
+
+.hero-image--inline {
+    float: right;
+    margin: 0 0 var(--space-md) var(--space-lg);
+    max-width: 305px;
+}
+
+.card--intro::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 /* ========================================
        6. TYPOGRAPHY UTILITIES
        ======================================== */
@@ -684,6 +705,10 @@ footer p {
         align-items: center;
     }
 
+    .section-hero--intro {
+        display: flex;
+    }
+
     /* Cards take full width */
     .card {
         width: 100%;
@@ -693,6 +718,11 @@ footer p {
     .hero-image {
         width: 100%;
         justify-content: center;
+    }
+
+    .hero-image--inline {
+        float: none;
+        margin: 0 auto var(--space-md);
     }
 
     .img-wrapper {
