@@ -190,9 +190,10 @@ nav menu > li.nav-menu--active a {
 }
 
 .hero-image--inline {
-    float: right;
-    margin: 0 0 var(--space-md) var(--space-lg);
+    float: left;
+    margin: 0 var(--space-lg) var(--space-md) 0;
     max-width: 305px;
+    shape-outside: inset(0 round var(--bd-radius));
 }
 
 .card--intro::after {
